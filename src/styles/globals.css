@@ -24,11 +24,19 @@ a {
 }
 
 .nav-link {
-  @apply text-gray mx-5 my-2 font-semibold hover:text-black transition-all duration-150;
+  @apply text-black xl:text-gray w-full px-5 py-3 xl:w-fit xl:p-0 xl:mx-5 xl:my-2 font-semibold hover:bg-white xl:hover:bg-[rgba(0,0,0,0)] hover:text-black transition-all duration-150;
 }
 
 .bound-container {
   @apply max-w-[1240px] mx-auto;
+}
+
+.menu-items{
+  @apply mx-3 cursor-pointer relative hidden xxs:block;
+}
+
+.menu-items-pinged{
+  @apply after:absolute after:h-2 after:w-2 after:bg-orange after:rounded-full after:top-0 after:-right-2;
 }
 
 input{
@@ -47,7 +55,7 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
@@ -55,4 +63,4 @@ input[type=number] {
     color: "#F5F6F6";
     background: black;
   }
-}
+} */

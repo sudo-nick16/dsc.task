@@ -22,10 +22,15 @@ const CardsGrid: NextPage<CardsGridProps> = ({ className }) => {
       premium: false,
       title: "Rockstar guitarist",
     },
+    {
+      url: "/images/cards/mountain.jpg",
+      premium: true,
+      title: "Mountain",
+    }
   ];
   return (
     <div
-      className={`${className} my-7 p-8 grid grid-cols-3 grid-flow-row gap-8`}
+      className={`${className} bound-container xxs:my-2 p-6 sm-p-8 grid grid-cols-2 sm:grid-cols-3 grid-flow-row gap-6 md:gap-8`}
     >
       {cards.map((card, index) => {
         return <Card key={index} data={card} />;

@@ -1911,6 +1911,11 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
+tailwindcss-delicious-hamburgers@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/tailwindcss-delicious-hamburgers/-/tailwindcss-delicious-hamburgers-1.0.3.tgz#715069fa2b40118975ffefc03ef09c4daa268028"
+  integrity sha512-Z7FRFGlVjmpYTMTcjUTXCFMiG/yMwN0Z23CoPLXY7u4CcdnAV0fBR/phS6tlXnMpg5737e0ZeODZF4u8eQtJcQ==
+
 tailwindcss@^3.1.7:
   version "3.1.7"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.1.7.tgz#ce99425f30a74e01457a2e6a724463b0df3159ac"

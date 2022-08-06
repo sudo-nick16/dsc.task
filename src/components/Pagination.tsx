@@ -21,12 +21,12 @@ const Pagination: NextPage<PaginationProps> = ({
 }) => {
   const [page, setPage] = useState(currentPage);
   return (
-    <div className={`${className} flex items-center text-gray font-semibold`}>
+    <div className={`${className} flex items-center text-sm xxs:text-base text-gray font-semibold`}>
       Page
       <div>
-        <button className="rounded-md bg-[#EEEFEF] p-2 ">
+        <button className="rounded-md bg-[#EEEFEF] p-2 ml-2">
           <img
-            className="h-4 w-4 -rotate-180"
+            className="h-3 w-3 xxs:h-4 xxs:w-4 -rotate-180"
             src={
               prevDisabled ? "/icons/right-gray.png" : "/icons/right-black.png"
             }
@@ -37,11 +37,11 @@ const Pagination: NextPage<PaginationProps> = ({
           value={page}
           onChange={(e) => setPage(parseInt(e.target.value))}
           type="number"
-          className="rounded-md border border-gray mx-[1px] h-8 w-12 p-2 text-center text-black"
+          className="rounded-md border border-gray mx-1 h-7 xxs:h-8 w-10 xxs:w-12 p-2 text-center text-black"
         />
-        <button className="rounded-md bg-[#EEEFEF] p-2">
+        <button className="rounded-md bg-[#EEEFEF] p-2 mr-2">
           <img
-            className="h-4 w-4"
+            className="h-3 w-3 xxs:h-4 xxs:w-4"
             src={
               nextDisabled ? "/icons/right-gray.png" : "/icons/right-black.png"
             }

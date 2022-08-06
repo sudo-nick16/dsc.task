@@ -1,20 +1,27 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 
-type DiscoverCollectionsProps = {};
+type DiscoverCollectionsProps = {
+  className?: string;
+  collection: string[];
+};
 
-const DiscoverCollections: NextPage<DiscoverCollectionsProps> = ({}) => {
-  const collection = ["cycle.jpg", "woman.jpg", "rainbow.jpg", "retro.jpg"];
+const DiscoverCollections: NextPage<DiscoverCollectionsProps> = ({
+  className="",
+  collection=[]
+}) => {
 
   return (
-    <div className="flex items-center">
+    <div
+      className={`${className} flex flex-col lg:flex-row items-center translate-x-[30px]`}
+    >
       <Link href={"/collections"}>
-        <a className="text-black underline text-lg w-fit">
-          Discover All <br /> Collections
+        <a className="text-black -ml-14 lg:ml-0 s-transition hover:font-medium underline hover:underline text-sm sm:text-base lg:text-lg w-fit lg:w-28">
+          Discover All Collections
         </a>
       </Link>
-      <div className="flex ml-4">
-        {collection.map((item, index) => {
+      <div className="flex ml-6 mt-2 lg:mt-0">
+        {collection.slice(0, 4).map((item, index) => {
           return (
             <span
               style={{

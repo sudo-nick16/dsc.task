@@ -12,6 +12,7 @@ const Layout: NextPage<LayoutProps> = ({ children }) => {
     <>
       <div className={`w-full`}>
         <Head>
+          <title>sudonick - DSC Task</title>
           <meta name="description" content="Nikit - DSC Task" />
           <link rel="icon" href="/sudonick.png" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,7 +28,6 @@ const Layout: NextPage<LayoutProps> = ({ children }) => {
         </Head>
         <Navbar />
         {children}
-        <Footer />
       </div>
     </>
   );
