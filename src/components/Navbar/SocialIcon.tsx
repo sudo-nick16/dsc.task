@@ -9,8 +9,8 @@ type SocialIconProps = {
 
 const SocialIcon: NextPage<SocialIconProps> = ({ href, className, src }) => {
   return (
-    <Link target={"_blank"} href={href}>
-      <a className={``}>
+    <Link href={href}>
+      <a target="_blank" className={``}>
         <div
           className={`${className} rounded-full h-10 w-10 shadow-xl shadow-gray bg-[#fff] s-transition hover:-translate-y-1`}
         >

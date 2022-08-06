@@ -15,7 +15,7 @@ const DropDown: NextPage<DropDownProps> = ({ className, options = [] }) => {
     setShow(false);
   };
   return (
-    <div className={`${className} relative h-10 z-10`}>
+    <div className={`${className} rounded-md relative h-9 z-10`}>
       <OutsideClickHandler
         onOutsideClick={() => {
           setShow(false);
@@ -41,7 +41,7 @@ const DropDown: NextPage<DropDownProps> = ({ className, options = [] }) => {
         <div
           className={`${
             show ? "h-28" : "h-0"
-          } text-base s-transition bg-[#fff] flex overflow-hidden flex-col justify-evenly`}
+          } text-sm xxs:text-base s-transition bg-[#fff] flex overflow-hidden flex-col justify-evenly`}
         >
           {options.map((item, index) => {
             if (item === value) {

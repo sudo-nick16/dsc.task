@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Footer from "./Footer";
-import Navbar from "./Navbar";
+import Navbar from "./Navbar/Navbar";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -12,7 +11,8 @@ const Layout: NextPage<LayoutProps> = ({ children }) => {
     <>
       <div className={`w-full`}>
         <Head>
-          <title>sudonick - DSC Task</title>
+          <title>SudoNick - DSC Task</title>
+          <link rel="icon" href="/logo.png" />
           <meta name="description" content="Nikit - DSC Task" />
           <link rel="icon" href="/sudonick.png" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -60,7 +60,7 @@ const Navbar: NextPage<NavbarProps> = ({
             + Submit
           </button>
           <SocialIcon
-            href=""
+            href="https://www.linkedin.com/in/sudo-nick/"
             src="/icons/gmail.png"
             className="p-2 ml-10 hidden xl:block"
           />

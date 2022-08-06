@@ -1,14 +1,20 @@
 import type { NextPage } from "next";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import OutsideClickHandler from "react-outside-click-wrapper";
 
 type SearchDropDownProps = {
   className?: string;
+  setValue: Dispatch<SetStateAction<string>>;
+  value: string;
+  options: string[];
 };
 
-const SearchDropDown: NextPage<SearchDropDownProps> = ({ className }) => {
-  const collection = ["Vectors", "Photos", "PSDs", "Videos"];
-  const [value, setValue] = useState(collection[0]);
+const SearchDropDown: NextPage<SearchDropDownProps> = ({
+  className,
+  value,
+  setValue,
+  options = [],
+}) => {
   const [show, setShow] = useState(false);
   const setValueHandler = (value: string) => {
     setValue(value);
@@ -20,18 +26,18 @@ const SearchDropDown: NextPage<SearchDropDownProps> = ({ className }) => {
         onOutsideClick={() => {
           setShow(false);
         }}
-        className="bg-[#fff] border rounded-md w-[5.5rem] sm:w-24 flex flex-col justify-between"
+        className="bg-[#fff] border rounded-md w-max flex flex-col justify-between"
       >
         <span
-          className="flex items-center py-2 px-2 cursor-pointer text-sm sm:text-base"
+          className="flex items-center py-2 w-auto cursor-pointer text-sm sm:text-base"
           onClick={() => {
             setShow(!show);
           }}
         >
-          {value}{" "}
+          <p className="pl-2 pr-1">{value }</p>
           <img
             src="/icons/down-arrow.png"
-            className="h-3 w-3 ml-auto cursor-pointer"
+            className="h-3 w-3 ml-auto mr-2 cursor-pointer"
             alt="down"
             onClick={() => {
               setShow(!show);
@@ -43,7 +49,7 @@ const SearchDropDown: NextPage<SearchDropDownProps> = ({ className }) => {
             show ? "h-28" : "h-0"
           } text-sm sm:text-base s-transition flex overflow-hidden flex-col justify-evenly`}
         >
-          {collection.map((item, index) => {
+          {options.map((item, index) => {
             if (item === value) {
               return null;
             }
