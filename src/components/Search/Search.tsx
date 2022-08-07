@@ -46,7 +46,7 @@ const Search: NextPage<SearchProps> = ({ className = "" }) => {
         options={options}
         setValue={setChoice}
         value={choice}
-        className="z-30"
+        className="z-30 h-10"
         innerBoxClassName="border"
       />
       <input
@@ -72,5 +72,3 @@ const Search: NextPage<SearchProps> = ({ className = "" }) => {
 };
 
 export default Search;
-
-export const getStaticProps = async () => {};

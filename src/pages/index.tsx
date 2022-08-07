@@ -3,11 +3,10 @@ import CardsGrid from "../components/CardGrid/CardsGrid";
 import PageEnd from "../components/PageEnd/PageEnd";
 import Search from "../components/Search/Search";
 import { useAppContext } from "../context/state";
-import axios from "axios";
 import { useEffect } from "react";
 import { API_KEY } from "../constants";
-import { cards as Cards } from "../backupData";
 import MenuBar from "../components/MenuBar/MenuBar";
+import fetchCards from "../utils/fetchCards";
 
 type HomeProps = {
   cards: card[];
@@ -44,23 +43,7 @@ export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
   const url = `https://pixabay.com/api/?key=${API_KEY}&q=&image_type=photo&min_height=300&min_width=300&page=1&per_page=10&order=popular&editors_choice=true&category=backgrounds&safesearch=true`;
-  var cards: card[] = Cards;
-  var totalPages = 1;
-  try {
-    const { data } = await axios.get(url);
-    cards = data.hits.map((item: any) => {
-      return {
-        url: item.webformatURL,
-        premium: false,
-        title: item.tags.split(",")[0],
-        type: item.type,
-        hdUrl: item.largeImageURL,
-      };
-    });
-    totalPages = Math.ceil(data.totalHits / 10);
-  } catch (e: any) {
-    console.log("Error: ", e.message);
-  }
+  const {cards, totalPages } = await fetchCards(url);
   return {
     props: {
       cards,

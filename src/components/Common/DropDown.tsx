@@ -24,12 +24,8 @@ const DropDown: NextPage<DropDownProps> = ({
     setValue(option);
     setShow(false);
   };
-  // just in case value is not already initialised with an option -> nahh wouldn't allow custom option to be set at init render
-  // useEffect(() => {
-  //   setValue(options[0]);
-  // }, []);
   return (
-    <div className={`${className} relative h-10 z-20`}>
+    <div className={`${className} relative z-20`}>
       <OutsideClickHandler
         onOutsideClick={() => {
           setShow(false);
