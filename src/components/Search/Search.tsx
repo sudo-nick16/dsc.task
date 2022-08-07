@@ -2,8 +2,7 @@ import type { NextPage } from "next";
 import { useState } from "react";
 import { useAppContext } from "../../context/state";
 import SearchDropDown from "./SearchDropDown";
-import axios from "axios";
-import searchHandler from "../../utils/searchHandler";
+import fetchCards from "../../utils/fetchCards";
 
 type SearchProps = {
   className?: string;
@@ -23,7 +22,7 @@ const Search: NextPage<SearchProps> = ({ className = "" }) => {
       search: search,
       imageType: choice,
     }));
-    searchHandler({
+    fetchCards({
       state: {
         ...state,
         cards: [],

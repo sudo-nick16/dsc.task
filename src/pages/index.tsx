@@ -1,6 +1,6 @@
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import CardsGrid from "../components/CardGrid/CardsGrid";
-import Footer from "../components/PageEnd/PageEnd";
+import PageEnd from "../components/PageEnd/PageEnd";
 import Search from "../components/Search/Search";
 import { useAppContext } from "../context/state";
 import axios from "axios";
@@ -35,14 +35,14 @@ const Home: NextPage<HomeProps> = ({ cards, totalPages }) => {
       <Search />
       <MenuBar newAvailable="Latest" />
       <CardsGrid />
-      <Footer />
+      <PageEnd />
     </div>
   );
 };
 
 export default Home;
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const url = `https://pixabay.com/api/?key=${API_KEY}&q=&image_type=photo&min_height=300&min_width=300&page=1&per_page=10&order=popular&editors_choice=true&category=backgrounds&safesearch=true`;
   var cards: card[] = Cards;
   var totalPages = 1;

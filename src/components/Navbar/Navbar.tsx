@@ -7,13 +7,17 @@ import SocialIcon from "./SocialIcon";
 
 type NavbarProps = {
   className?: string;
-  moreOptions?: boolean;
 };
 
 const Navbar: NextPage<NavbarProps> = ({
   className = "",
-  moreOptions = [],
 }) => {
+  const navItems = [
+    { name: "Vectors", url: "/vectors" },
+    { name: "Photos", url: "/photos" },
+    { name: "PSD", url: "/psd" },
+    { name: "Video", url: "/video" },
+  ];
   const [showSidebar, setShowSidebar] = useState(false);
   return (
     <div
@@ -25,7 +29,7 @@ const Navbar: NextPage<NavbarProps> = ({
           <img
             src="logo.png"
             className="cursor-pointer h-10 w-10 sm:h-12 sm:w-12 absolute left-1/2 -translate-x-1/2 xl:static xl:translate-x-0"
-            alt=""
+            alt="sudopik_logo"
           />
         </Link>
         <div
@@ -38,19 +42,19 @@ const Navbar: NextPage<NavbarProps> = ({
             setActive={setShowSidebar}
             active={showSidebar}
           />
-          <Link href={"/vectors"}>
-            <a className="nav-link">Vectors</a>
-          </Link>
-          <Link href={"/photos"}>
-            <a className="nav-link">Photos</a>
-          </Link>
-          <Link href={"/psd"}>
-            <a className="nav-link">PSD</a>
-          </Link>
-          <Link href={"/video"}>
-            <a className="nav-link">Video</a>
-          </Link>
-          <MoreDropDown className="nav-link" />
+          {navItems.map((item, index) => {
+            return (
+              <Link key={index} href={item.url}>
+                <a onClick={() => setShowSidebar(false)} className={`nav-link`}>
+                  {item.name}
+                </a>
+              </Link>
+            );
+          })}
+          <MoreDropDown
+            callback={() => setShowSidebar(false)}
+            className="nav-link"
+          />
         </div>
         <div className="flex ml-auto">
           <button
@@ -65,7 +69,7 @@ const Navbar: NextPage<NavbarProps> = ({
             className="p-2 ml-10 hidden xl:block"
           />
           <SocialIcon
-            href=""
+            href="https://www.instagram.com/sudo_nick/"
             src="/icons/facebook.png"
             className="mx-3 hidden xl:block"
           />

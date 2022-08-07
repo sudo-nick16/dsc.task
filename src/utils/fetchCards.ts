@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const searchHandler = async (state: GlobalState, pageNumber?: number) => {
+const fetchCards = async (state: GlobalState, pageNumber?: number) => {
   const {
     state: { search, imageType },
     setState,
@@ -31,4 +31,4 @@ const searchHandler = async (state: GlobalState, pageNumber?: number) => {
   }
 };
 
-export default searchHandler;
+export default fetchCards;

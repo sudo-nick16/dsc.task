@@ -1,8 +1,7 @@
 import type { NextPage } from "next";
-import { useState } from "react";
 import { useAppContext } from "../../context/state";
 import scrollToCards from "../../utils/scrollToCards";
-import searchHandler from "../../utils/searchHandler";
+import fetchCards from "../../utils/fetchCards";
 
 type PaginationProps = {
   className?: string;
@@ -24,7 +23,7 @@ const Pagination: NextPage<PaginationProps> = ({ className }) => {
       alert("No more pages");
       return;
     }
-    searchHandler({ state, setState }, state.currentPage + 1);
+    fetchCards({ state, setState }, state.currentPage + 1);
     scrollToCards();
   };
   return (
@@ -49,12 +48,13 @@ const Pagination: NextPage<PaginationProps> = ({ className }) => {
         </button>
         <input
           value={state.currentPage}
-          onChange={(e) =>
-            setState((curr: any) => ({
-              ...curr,
-              currentPage: parseInt(e.target.value),
-            }))
-          }
+          // don't have enough time to implement this
+          // onChange={(e) =>
+          //   setState((curr: any) => ({
+          //     ...curr,
+          //     currentPage: parseInt(e.target.value),
+          //   }))
+          // }
           type="number"
           className="rounded-md border border-gray mx-1 h-7 xxs:h-8 w-10 xxs:w-12 p-2 text-center text-black"
         />

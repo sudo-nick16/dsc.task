@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { useAppContext } from "../../context/state";
 import scrollToCards from "../../utils/scrollToCards";
-import searchHandler from "../../utils/searchHandler";
+import fetchCards from "../../utils/fetchCards";
 import DiscoverCollections from "./DiscoverCollections";
 import Pagination from "./Pagination";
 
@@ -16,7 +16,7 @@ const PageEnd: NextPage<PageEnd> = ({ className }) => {
       alert("No more pages");
       return;
     }
-    searchHandler({ state, setState }, state.currentPage + 1);
+    fetchCards({ state, setState }, state.currentPage + 1);
     scrollToCards();
   };
   return (
