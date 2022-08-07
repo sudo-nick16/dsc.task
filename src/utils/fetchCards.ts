@@ -23,7 +23,7 @@ async function fetchCards(
       const cards = data.hits.map((item: any) => {
         return {
           url: item.webformatURL,
-          premium: false,
+          premium: Math.floor(Math.random() * 10) % 2 === 1, // randomize premium cards
           title: item.tags.split(",")[0],
           type: item.type,
           hdUrl: item.largeImageURL,

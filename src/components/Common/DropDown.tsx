@@ -12,8 +12,8 @@ type DropDownProps = {
 };
 
 const DropDown: NextPage<DropDownProps> = ({
-  className,
-  innerBoxClassName,
+  className="",
+  innerBoxClassName="",
   value,
   setValue,
   options = [],
@@ -25,7 +25,7 @@ const DropDown: NextPage<DropDownProps> = ({
     setShow(false);
   };
   return (
-    <div className={`${className} relative z-20`}>
+    <div data-testid="dropdown" className={`${className} relative z-20`}>
       <OutsideClickHandler
         onOutsideClick={() => {
           setShow(false);
