@@ -14,6 +14,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-outside-click-wrapper": "^1.0.3",
+    "react-responsive": "^9.0.0-beta.10",
     "tailwindcss-delicious-hamburgers": "^1.0.3"
   },
   "devDependencies": {

@@ -1,15 +1,20 @@
 import type { NextPage } from "next";
 import { useState } from "react";
 import { useAppContext } from "../../context/state";
-import SearchDropDown from "./SearchDropDown";
 import fetchCards from "../../utils/fetchCards";
+import DropDown from "../Common/DropDown";
 
 type SearchProps = {
   className?: string;
 };
 
 const Search: NextPage<SearchProps> = ({ className = "" }) => {
-  const options = ["Vector", "Photo", "Illustration", "All"];
+  const options = [
+    { name: "Vectors", value: "vector" },
+    { name: "Photos", value: "photo" },
+    { name: "Illustrations", value: "illustration" },
+    { name: "All", value: "all" },
+  ];
   const [choice, setChoice] = useState(options[0]);
   const [search, setSearch] = useState("");
 
@@ -20,14 +25,14 @@ const Search: NextPage<SearchProps> = ({ className = "" }) => {
       ...curr,
       cards: [],
       search: search,
-      imageType: choice,
+      imageType: choice.value,
     }));
     fetchCards({
       state: {
         ...state,
         cards: [],
         search: search,
-        imageType: choice,
+        imageType: choice.value,
       },
       setState,
     });
@@ -37,11 +42,12 @@ const Search: NextPage<SearchProps> = ({ className = "" }) => {
     <div
       className={`${className} mt-4 py-2 mb-9 flex bg-[#fff] px-2 rounded-lg items-center w-[90%] sm:w-[36rem]`}
     >
-      <SearchDropDown
+      <DropDown
         options={options}
         setValue={setChoice}
         value={choice}
-        className=""
+        className="z-30"
+        innerBoxClassName="border"
       />
       <input
         type="text"

@@ -48,7 +48,7 @@ const Pagination: NextPage<PaginationProps> = ({ className }) => {
         </button>
         <input
           value={state.currentPage}
-          // don't have enough time to implement this
+          // don't have enough time to implement this -> change in cache ds could fix the bugs caused by implementing this
           // onChange={(e) =>
           //   setState((curr: any) => ({
           //     ...curr,

@@ -6,22 +6,17 @@ import OutsideClickHandler from "react-outside-click-wrapper";
 type MoreDropDownProps = {
   className?: string;
   callback: () => void;
+  options: {
+    option: string;
+    link: string;
+  }[];
 };
 
 const MoreDropDown: NextPage<MoreDropDownProps> = ({
   className = "",
   callback,
+  options = [],
 }) => {
-  const options = [
-    {
-      option: "Icons",
-      link: "/icons",
-    },
-    {
-      option: "Stickers",
-      link: "/stickers",
-    },
-  ];
   const [showMore, setShowMore] = useState(false);
   const choiceHandler = () => {
     setShowMore(false);
@@ -46,9 +41,11 @@ const MoreDropDown: NextPage<MoreDropDownProps> = ({
         />
       </span>
       <div
-        className={`flex flex-col rounded-md lg:mt-1 s-transition overflow-y-clip absolute top-full left-0 w-full lg:w-auto ${
-          showMore ? `h-${options.length * 12}` : "h-0"
-        } `}
+        // using style to avoid safelisting in tailwind config
+        style={
+          showMore ? { height: `${options.length * 3}rem` } : { height: "0rem" }
+        }
+        className={`flex flex-col rounded-md lg:mt-1 s-transition overflow-y-clip absolute top-full left-0 w-full lg:w-auto`}
       >
         {options.map((item, index) => {
           return (

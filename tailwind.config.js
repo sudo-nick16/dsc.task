@@ -6,6 +6,7 @@ module.exports = {
     "./src/pages/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
+  safelist: [],
   theme: {
     deliciousHamburgers: {
       size: "40px", // must be in px.
@@ -26,8 +27,7 @@ module.exports = {
       xxs: "476px",
       ...screens,
     },
-    extend: {
-    },
+    extend: {},
   },
   plugins: [require("tailwindcss-delicious-hamburgers")],
 };

@@ -1,5 +1,7 @@
 declare module "react-outside-click-wrapper";
 
+type DropDownOption = { name: string; value: string };
+
 type card = {
   url: string;
   premium: boolean;

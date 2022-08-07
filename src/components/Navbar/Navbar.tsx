@@ -9,9 +9,7 @@ type NavbarProps = {
   className?: string;
 };
 
-const Navbar: NextPage<NavbarProps> = ({
-  className = "",
-}) => {
+const Navbar: NextPage<NavbarProps> = ({ className = "" }) => {
   const navItems = [
     { name: "Vectors", url: "/vectors" },
     { name: "Photos", url: "/photos" },
@@ -52,6 +50,16 @@ const Navbar: NextPage<NavbarProps> = ({
             );
           })}
           <MoreDropDown
+            options={[
+              {
+                option: "Illustrations",
+                link: "/illustrations",
+              },
+              {
+                option: "Stickers",
+                link: "/stickers",
+              },
+            ]}
             callback={() => setShowSidebar(false)}
             className="nav-link"
           />

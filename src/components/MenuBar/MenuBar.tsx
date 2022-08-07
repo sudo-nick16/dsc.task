@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
-import DropDown from "./DropDown";
+import { useState } from "react";
+import DropDown from "../Common/DropDown";
 
 type MenuBarProps = {
   className?: string;
@@ -7,17 +8,28 @@ type MenuBarProps = {
 };
 
 const MenuBar: NextPage<MenuBarProps> = ({ className = "", newAvailable }) => {
+  const options = [
+    { name: "Latest", value: "latest " },
+    { name: "Popular", value: "popular" },
+    { name: "Premium", value: "premium" },
+    { name: "Free", value: "free" },
+  ];
+  const [showBy, setShowBy] = useState<DropDownOption>(options[0]);
   return (
     <div
       className={`${className} mt-8 mx-auto flex xxs:flex-row justify-between items-center w-[90%] xxs:w-[95%]`}
     >
       <DropDown
-        className="bg-[#fff] block xxs:hidden"
-        options={["Latest", "Popular", "Premium", "Free"]}
+        value={showBy!}
+        setValue={setShowBy}
+        className="bg-[#fff] block xxs:hidden rounded-md"
+        options={options}
       />
       <div className="flex sm:flex-row text-base sm:text-xl font-medium">
         <span
-          className={`menu-items ${newAvailable === "Latest" && "menu-items-pinged"}`}
+          className={`menu-items ${
+            newAvailable === "Latest" && "menu-items-pinged"
+          }`}
         >
           Latest
         </span>
