@@ -31,7 +31,7 @@ const Pagination: NextPage<PaginationProps> = ({ className }) => {
       className={`${className} flex items-center text-sm xxs:text-base text-gray font-semibold`}
     >
       Page
-      <div>
+      <div className="flex items-center">
         <button
           className="rounded-md bg-[#EEEFEF] p-2 ml-2"
           onClick={prevPageHandler}
@@ -46,18 +46,21 @@ const Pagination: NextPage<PaginationProps> = ({ className }) => {
             alt="prev"
           />
         </button>
-        <input
+        {/* don't have enough time to implement this -> change in cache ds could fix the bugs caused by implementing this */}
+        {/* <input
           value={state.currentPage}
-          // don't have enough time to implement this -> change in cache ds could fix the bugs caused by implementing this
-          // onChange={(e) =>
-          //   setState((curr: any) => ({
-          //     ...curr,
-          //     currentPage: parseInt(e.target.value),
-          //   }))
-          // }
+          onChange={(e) =>
+            setState((curr: any) => ({
+              ...curr,
+              currentPage: parseInt(e.target.value),
+            }))
+          }
           type="number"
           className="rounded-md border border-gray mx-1 h-7 xxs:h-8 w-10 xxs:w-12 p-2 text-center text-black"
-        />
+        /> */}
+        <div className=" flex items-center justify-center bg-[#fff] rounded-md border border-gray mx-1 h-7 xxs:h-8 w-10 xxs:w-12 p-2 text-center text-black">
+          {state.currentPage}
+        </div>
         <button
           className="rounded-md bg-[#EEEFEF] p-2 mr-2"
           onClick={nextPageHandler}
