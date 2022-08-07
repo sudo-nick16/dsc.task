@@ -38,7 +38,7 @@ const DropDown: NextPage<DropDownProps> = ({
             setShow(!show);
           }}
         >
-          <p className="pl-2 pr-1">{value.name}</p>
+          <p className="pl-2 pr-1" data-testid="show" >{value.name}</p>
           <img
             src="/icons/down-arrow.png"
             className="h-3 w-3 ml-auto mr-2 cursor-pointer"
